@@ -1,0 +1,4 @@
+import {describe,it,expect} from 'vitest';
+import {browserPlan} from './demo';
+const input={start:{lat:12.9063,lon:77.5857},end:{lat:13.246,lon:77.711},capacity:45,battery:25,reserve:15,efficiency:.16,connector:'CCS2',max_charge_kw:60};
+describe('browser graph routing',()=>{it('protects reserve across charging legs',()=>{const r=browserPlan(input);expect(r.stops.length).toBeGreaterThan(0);expect(r.arrival_battery).toBeGreaterThanOrEqual(15);for(const s of r.stops)expect(s.arrival_battery).toBeGreaterThanOrEqual(15)});it('skips charging for a reachable direct route',()=>expect(browserPlan({...input,battery:90}).stops).toHaveLength(0));it('rejects incompatible charging chains',()=>expect(()=>browserPlan({...input,connector:'missing'})).toThrow('No feasible'));it('rejects exhausted initial reserve',()=>expect(()=>browserPlan({...input,battery:10})).toThrow('Check battery'))});

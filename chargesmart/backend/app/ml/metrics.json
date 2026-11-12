@@ -1,0 +1,14 @@
+{
+  "mae_minutes": 2.336689245742362,
+  "rmse_minutes": 3.0522111517940393,
+  "training_rows": 4800,
+  "test_rows": 1200,
+  "source": "synthetic held-out random split; not real-world validation",
+  "seed": 42,
+  "features": [
+    "hour",
+    "day",
+    "ports",
+    "occupancy"
+  ]
+}

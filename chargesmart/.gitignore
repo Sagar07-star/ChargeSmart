@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.local
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.db
+*.tsbuildinfo
+frontend/dist/
+backend/app/ml/*.joblib
+backend/app/ml/synthetic_sessions.csv

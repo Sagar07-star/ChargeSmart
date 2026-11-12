@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/((?!assets/|demo-grid.svg).*)","destination":"/index.html"}]}
